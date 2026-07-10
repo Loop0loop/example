@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Nanum Pen Script', 'Caveat', cursive, sans-serif;
+  --font-mono: 'Caveat', 'Nanum Pen Script', cursive, monospace;
+}
+
+/* Minimalist Clean Light-Grey Desktop */
+body {
+  background-color: #f3f4f6; /* Modern sleek light grey */
+  color: #0f172a; /* High contrast dark slate/charcoal */
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+}
+
+/* Scaled Lined Notebook Card (Larger, fits screens better) */
+.notebook-paper {
+  background-color: #ffffff; /* Crisp white paper */
+  background-image: 
+    /* Very thin red margin line shifted left (24px) */
+    linear-gradient(90deg, transparent 24px, #fda4af 24px, #fda4af 25.5px, transparent 25.5px),
+    /* Faint blue ruled lines spaced slightly wider for legibility */
+    repeating-linear-gradient(transparent, transparent 34px, #e2e8f0 34px, #e2e8f0 35.5px);
+  background-size: 100% 100%, 100% 35.5px;
+  box-shadow: 
+    0 10px 30px -5px rgba(0, 0, 0, 0.05),
+    0 8px 15px -6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  position: relative;
+  width: 100%;
+  max-width: 680px; /* Scaled up for comfort */
+}
+
+/* Handwritten sketchy borders */
+.hand-drawn-border {
+  border: 2.5px solid #1e293b;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+/* Yellow Highlighter Marker Hover Effect */
+.highlighter-hover {
+  position: relative;
+  z-index: 1;
+  transition: all 0.15s ease-in-out;
+}
+
+.highlighter-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0.05em -0.2em;
+  background-color: rgba(253, 224, 71, 0);
+  z-index: -1;
+  transform: rotate(-1deg) scaleX(0.95);
+  transition: background-color 0.15s ease-in-out, transform 0.15s ease-in-out;
+  border-radius: 4px;
+}
+
+.highlighter-hover:hover::before {
+  background-color: rgba(253, 224, 71, 0.65);
+  transform: rotate(-0.5deg) scaleX(1.03) scaleY(1.05);
+}
+
+/* Lined notebook write-in field */
+.notebook-input {
+  background: transparent;
+  border: none;
+  border-bottom: 2.5px solid #1e293b;
+  font-family: var(--font-mono);
+  font-size: 32px;
+  color: #1d4ed8; /* Premium blue ink */
+  outline: none;
+  padding: 0px 8px;
+}
